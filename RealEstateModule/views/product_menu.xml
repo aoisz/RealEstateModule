@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Define the action for product.template -->
+    <record id="action_product_template" model="ir.actions.act_window">
+        <field name="name">Bất động sản đầu chủ</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'form_view_ref': 'custom_product_template_form_view_1', 'partner_id': 3, 'check_child_partner_ids': True}</field>
+        <field name="domain">[('is_owner', '=', True)]</field>
+    </record>
+
+    <record id="action_product_product" model="ir.actions.act_window">
+        <field name="name">Bất động sản đầu khách</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'form_view_ref':'custom_product_template_form_view_2'}</field>
+        <field name="domain">[('is_owner', '=', False), ('create_uid','=', uid)]</field>
+    </record>
+
+    <!-- Define the menuitem under the eCommerce section -->
+    <record id="rent_re_action" model="ir.actions.act_window">
+        <field name="name">Config</field>
+        <field name="res_model">res.brokerage2</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="rent_re_action2" model="ir.actions.act_window">
+        <field name="name">Config</field>
+        <field name="res_model">res.brokerage4</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record id="thinhlor2" model="ir.actions.act_window">
+        <field name="name">Config</field>
+        <field name="res_model">res.brokerage1</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record id="thinhlor22" model="ir.actions.act_window">
+        <field name="name">Config</field>
+        <field name="res_model">res.brokerage3</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_product_direction_tree" model="ir.ui.view">
+        <field name="name">res.brokerage1.tree</field>
+        <field name="model">res.brokerage1</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="type_brokerage" string="Loại nhà bán" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_product_direction2_tree" model="ir.ui.view">
+        <field name="name">res.brokerage2.tree</field>
+        <field name="model">res.brokerage2</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="type" string="Loại nhà bán" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_product_direction3_tree" model="ir.ui.view">
+        <field name="name">res.brokerage3.tree</field>
+        <field name="model">res.brokerage3</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="type" string="Khu vực bán" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_product_direction4_tree" model="ir.ui.view">
+        <field name="name">res.brokerage4.tree</field>
+        <field name="model">res.brokerage4</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="type" string="Khu vực cho thuê" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- RE Cart action -->
+    <record id="action_res_cart_view" model="ir.actions.act_window">
+        <field name="name">Giỏ hàng</field>
+        <field name="res_model">res.cart</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <!-- RE Cart shared action -->
+    <record id="action_share_res_cart" model="ir.actions.act_window">
+        <field name="name">Chia sẻ</field>
+        <field name="res_model">res.cart</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- RE Partner Details action -->
+    <record id="action_res_partner_details_view" model="ir.actions.act_window">
+        <field name="name">Thông tin môi giới</field>
+        <field name="res_model">res.partner.details</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <!-- RE Customer action -->
+    <record id="action_res_customer_view" model="ir.actions.act_window">
+        <field name="name">Khách hàng</field>
+        <field name="res_model">res.customer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- RE CRM action -->
+    <record id="action_res_crm" model="ir.actions.act_window">
+        <field name="name">CRM</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_mode">kanban</field>
+    </record>
+
+    <menuitem id="menu_product_root" name="Real Estate" />
+
+    <!-- RE Cart menu -->
+    <menuitem id="res_cart" name="Giỏ Hàng" parent="menu_product_root"
+        action="action_res_cart_view" sequence="1"/>
+
+    <!-- Share Partner menu -->
+    <menuitem id="share_res_cart" parent="res_cart" name="Chia sẻ"
+        action="action_share_res_cart" sequence="0"/>
+        
+    <!-- RE Partner Details menu -->
+    <menuitem id="res_partner_details" name="Thông tin môi giới" parent="menu_product_root"
+        action="action_res_partner_details_view" sequence="20"/>
+
+    <!-- RE Customer menu -->
+    <menuitem id="res_customer" name="Khách hàng" parent="menu_product_root"
+        action="action_res_customer_view" sequence="2"/>
+
+    <!-- RE CRM integration menu -->
+    <menuitem id="res_crm" name="CRM" parent="menu_product_root"
+        action="action_res_crm" sequence="2"/>        
+
+    <menuitem id="menu_product_template" name="Bất động sản đầu chủ" parent="menu_product_root"
+        action="action_product_template" sequence="10" />
+    <menuitem id="menu_product_template_2" name="Bất động sản đầu khách" parent="menu_product_root"
+        action="action_product_product" sequence="10" />
+
+    <menuitem id="thinhlor" name="Sale RE Config" parent="contacts.menu_contacts"
+        sequence="100" />
+
+    <menuitem id="rent_re_id" name="Rent RE Config" parent="contacts.menu_contacts"
+         sequence="10000" />
+
+    <menuitem id="child_1" name="Loại nhà bán" parent="thinhlor"
+        action="thinhlor2" sequence="10" />
+
+    <menuitem id="thinhlmaohmu" name="Khu vực bán" parent="thinhlor"
+        action="thinhlor22" sequence="100000" />
+
+    <menuitem id="hmuhmu" name="Loại nhà thuê " parent="rent_re_id"
+    action="rent_re_action" sequence="10" />
+
+    <menuitem id="codelor" name="Khu vực thuê " parent="rent_re_id"
+        action="rent_re_action2" sequence="100000" />
+
+
+
+
+
+    <record id="view_product_kanban" model="ir.ui.view">
+        <field name="name">product_custom.kanban</field>
+        <field name="model">product.type</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <strong>
+                                <field name="name"/>
+                            </strong>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Tree View Definition -->
+    <record id="view_product_tree" model="ir.ui.view">
+        <field name="name">product_custom.tree</field>
+        <field name="model">product.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="image" widget="image" options='{"width": 25}'/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View Definition -->
+    <record id="view_custom_config_settings_form" model="ir.ui.view">
+        <field name="name">product_custom.form</field>
+        <field name="model">product.type</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group string="Loại bất động sản">
+                        <field name="name" string="Tên loại"/>
+                        <field name="image" widget="image" options='{"width": 25}'/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action Definition -->
+    <record id="action_custom_config_settings" model="ir.actions.act_window">
+        <field name="name">Loại bất động sản</field>
+        <field name="res_model">product.type</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="RealEstateModule.view_product_tree"/>
+        <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('RealEstateModule.view_product_tree')}),
+                                    (0, 0, {'view_mode': 'kanban', 'view_id': ref('RealEstateModule.view_product_kanban')}),
+                                    (0, 0, {'view_mode': 'form', 'view_id': ref('RealEstateModule.view_custom_config_settings_form')})]"/>
+        <field name="target">main</field>
+    </record>
+
+
+
+
+    <record id="view_temporary_data_form" model="ir.ui.view">
+        <field name="name">product.direction.form</field>
+        <field name="model">product.direction</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group string="Hướng bất động sản">
+                        <field name="name" string="Tên hướng"/>
+                        <field name="image" widget="image" options='{"width": 25}'/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="view_product_direction_kanban" model="ir.ui.view">
+        <field name="name">product_custom.kanban</field>
+        <field name="model">product.direction</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <strong>
+                                <field name="name"/>
+                            </strong>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Tree View Definition -->
+    <record id="view_product_direction_tree" model="ir.ui.view">
+        <field name="name">product_direction.tree</field>
+        <field name="model">product.direction</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="image" widget="image" options='{"width": 25}'/>
+
+            </tree>
+        </field>
+    </record>
+    <!-- Action Definition -->
+    <record id="action_temporary_data" model="ir.actions.act_window">
+        <field name="name">Chỉnh sửa hướng</field>
+        <field name="res_model">product.direction</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="RealEstateModule.view_product_direction_tree"/>
+        <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('RealEstateModule.view_product_direction_tree')}),
+                                    (0, 0, {'view_mode': 'kanban', 'view_id': ref('RealEstateModule.view_product_direction_kanban')}),
+                                    (0, 0, {'view_mode': 'form', 'view_id': ref('RealEstateModule.view_temporary_data_form')})]"/>
+        <field name="target">main</field>
+    </record>
+
+    <menuitem id="menu_setting_childs" name="Cài đặt" parent="menu_product_root" sequence="22"/>
+    <menuitem id="child_1" name="Loại bất động sản" parent="menu_setting_childs" action="action_custom_config_settings" sequence="10"/>
+    <menuitem id="child_2" name="Hướng bất động sản" parent="menu_setting_childs" action="action_temporary_data" sequence="10"/>
+
+</odoo>
