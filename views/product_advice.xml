@@ -65,20 +65,38 @@
                         <label for="is_owner" />
                     </span>
                 </xpath>
+
                 <xpath expr="//page[@name='general_information']" position="attributes">
                     <attribute name="class">d-none</attribute>
+                    <attribute name="invisible">1</attribute>
                 </xpath>
+
                 <xpath expr="//page[@name='purchase']" position="attributes">
                     <attribute name="class">d-none</attribute>
+                    <attribute name="invisible">1</attribute>
                 </xpath>
+
                 <xpath expr="//page[@name='inventory']" position="attributes">
                     <attribute name="class">d-none</attribute>
+                    <attribute name="invisible">1</attribute>
                 </xpath>
+
                 <xpath expr="//page[@name='invoicing']" position="attributes">
                     <attribute name="class">d-none</attribute>
+                    <attribute name="invisible">1</attribute>
                 </xpath>
+                
                 <xpath expr="//page[@name='sales']" position="attributes">
                     <attribute name="class">d-none</attribute>
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='toggle_preview']" position="attributes">
+                    <attribute name="invisible">is_owner</attribute>
+                </xpath>
+
+                <xpath expr="//page[@name='description_block']" position="attributes">
+                    <attribute name="invisible">is_owner</attribute>
                 </xpath>
                 
 
@@ -403,6 +421,9 @@
                             </field>
                         </div>
                     </page>
+
+                    <page name="sharing_list" string="Sharing"></page>
+                    
                     <page name="opp_page" string="Biểu mẫu liên hệ" invisible="is_owner">
                         <group name="" string="Liên hệ">
                             <field name="activity_user_id" string="Người quản lý sản phẩm" />
@@ -411,7 +432,6 @@
                             <field name="form_model_name" widget="radio" string="Form action"
                                 default="crm.lead" options="{'horizontal': true}" />
                         </group>
-
                     </page>
 
                 </notebook>

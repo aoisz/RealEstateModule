@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <data>
 
 
         <record id="custom_product_template_form_view_1" model="ir.ui.view">
@@ -41,10 +41,6 @@
                     </sheet>
                 </form>
             </field>
-        </record>
-
-
-
+        </record>        
     </data>
-
 </odoo>

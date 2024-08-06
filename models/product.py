@@ -157,8 +157,7 @@ class ProductTemplateInherit(models.Model):
             'interior': parent_product.interior,
             'sell_name': parent_product.sell_name,
             'sell_phone': parent_product.sell_phone,
-            'contract': parent_product.contract,
-            
+            'contract': parent_product.contract,   
         }
 
         # Tạo sản phẩm mới

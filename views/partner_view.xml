@@ -1,5 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <record id="view_partner_form_with_friend" model="ir.ui.view">
+        <field name="name">res.partner.form.with.friend</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Thêm Bạn bè">
+                <sheet>
+                    <group>
+                        <field name="friend_partner_ids" options="{'no_create': True}">
+                            <kanban create="false" delete="false">
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <!-- Display fields of each partner_id in separate card -->
+                                        <group class="o_kanban_record d-flex flex-column" style="width: 100%; height: 100%;">
+                                            <div class="row flex-grow-1 oe_kanban_global_click" style="width: 100%; height: 100%">
+                                                <div class="col-6">
+                                                    <div class="o_kanban_record_head h-100 d-flex align-items-center">
+                                                        <div class="o_kanban_record_head_left">
+                                                            <field class="img-fluid" name="image_1920" widget="image" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="o_kanban_record_right h-100 d-flex flex-column justify-content-center">
+                                                        <div class="text-nowrap name-container">
+                                                            <strong>
+                                                                <field name="name" />
+                                                            </strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="delete-button text-end">
+                                                    <a type="delete" name="delete_button" class="fa fa-trash" />
+                                                </div>
+                                            </div>
+                                        </group>
+                                    </t>
+                                </templates>
+                            </kanban>
+                        </field>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Confirm" class="btn-primary" special="save"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_partner_form_with_co_partner" model="ir.ui.view">
+        <field name="name">res.partner.form.with.co_partner</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Thêm Đối tác">
+                <sheet>
+                    <group>
+                        <field name="friend_partner_ids" invisible="1"/>
+                        <field name="co_partner_ids" options="{'no_create': True}">
+                            <kanban create="false" delete="false">
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <!-- Display fields of each partner_id in separate card -->
+                                        <group class="o_kanban_record d-flex flex-column" style="width: 100%; height: 100%;">
+                                            <div class="row flex-grow-1 oe_kanban_global_click" style="width: 100%; height: 100%">
+                                                <div class="col-6">
+                                                    <div class="o_kanban_record_head h-100 d-flex align-items-center">
+                                                        <div class="o_kanban_record_head_left">
+                                                            <field class="img-fluid" name="image_1920" widget="image" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="o_kanban_record_right h-100 d-flex flex-column justify-content-center">
+                                                        <div class="text-nowrap name-container">
+                                                            <strong>
+                                                                <field name="name" />
+                                                            </strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="delete-button text-end">
+                                                    <a type="delete" name="delete_button" class="fa fa-trash" />
+                                                </div>
+                                            </div>
+                                        </group>
+                                    </t>
+                                </templates>
+                            </kanban>
+                        </field>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Confirm" class="btn-primary" special="save"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_partner_form_with_team" model="ir.ui.view">
+        <field name="name">res.partner.form.with.team</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Thêm Đồng nghiệp">
+                <sheet>
+                    <group>
+                        <field name="friend_partner_ids" invisible="1"/>
+                        <field name="co_partner_ids" invisible="1"/>
+                        <field name="team_partner_ids" options="{'no_create': True}">
+                            <kanban create="false" delete="false">
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <!-- Display fields of each partner_id in separate card -->
+                                        <group class="o_kanban_record d-flex flex-column" style="width: 100%; height: 100%;">
+                                            <div class="row flex-grow-1 oe_kanban_global_click" style="width: 100%; height: 100%">
+                                                <div class="col-6">
+                                                    <div class="o_kanban_record_head h-100 d-flex align-items-center">
+                                                        <div class="o_kanban_record_head_left">
+                                                            <field class="img-fluid" name="image_1920" widget="image" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="o_kanban_record_right h-100 d-flex flex-column justify-content-center">
+                                                        <div class="text-nowrap name-container">
+                                                            <strong>
+                                                                <field name="name"/>
+                                                            </strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="delete-button text-end">
+                                                    <a type="delete" name="delete_button" class="fa fa-trash" />
+                                                </div>
+                                            </div>
+                                        </group>
+                                    </t>
+                                </templates>
+                            </kanban>
+                        </field>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Confirm" class="btn-primary" special="save"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Custom lại Kanban view cho giao diện Contact -->
+    <record id="inherit_res_partner_kanban_view" model="ir.ui.view">
+        <field name="name">res.partner.kanban.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="js_class">kanban_test</attribute>
+            </xpath>
+        </field>
+    </record>
+
     <record id="view_partner_form_inherit" model="ir.ui.view">
         <field name="name">res.partner.form.inherit</field>
         <field name="model">res.partner</field>
@@ -21,6 +183,27 @@
 
             <xpath expr="//notebook/page[@name='accounting']" position="attributes">
                 <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//notebook/page[@name='accounting']" position="after">
+                <page name="friend_list" string="Friend List">
+                    <group>
+                        <field name="friend_partner_ids"
+                            options="{'no_create_edit': True, 'no_create': True}"/>
+                    </group>
+                </page>
+                <page name="friend_list" string="Friend List">
+                    <group>
+                        <field name="co_partner_ids"
+                            options="{'no_create_edit': True, 'no_create': True}"/>
+                    </group>
+                </page>
+                <page name="team_list" string="Team">
+                    <group>
+                        <field name="team_partner_ids"
+                            options="{'no_create_edit': True, 'no_create': True}"/>
+                    </group>
+                </page>
             </xpath>
 
             <xpath expr="//notebook/page[@name='accounting']" position="after">

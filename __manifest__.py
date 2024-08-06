@@ -19,7 +19,7 @@
     # Module dựa trên các category nào
     # Khi hoạt động, category trong 'depends' phải được install
     ### rồi module này mới đc install
-    'depends': ['base', 'product', 'website_sale', 'crm'],
+    'depends': ['base', 'product', 'website_sale', 'crm', 'WebsiteTemplate'],
 
     # Module có được phép install hay không
     # Nếu bạn thắc mắc nếu tắt thì làm sao để install
@@ -32,11 +32,13 @@
     # Những file ảnh hưởng trực tiếp đến giao diện (không phải file để chỉnh sửa giao diện)
     ## hoặc hệ thống (file group, phân quyền)
     'data': [
+        'security/security.xml',
         'security/ir.model.access.csv',
         'data/product_type_data.xml',
         'data/product_direction_data.xml',
         # 'data/res_country_district_data.xml',
         # 'data/res_country_ward_data.xml',
+        'views/custom_menu_visibility.xml',
         'views/s_website_form_advice.xml',
         'views/product_detail_views.xml',
         'views/product_advice.xml',
@@ -49,6 +51,10 @@
             'RealEstateModule/static/src/snippets/s_website_form/000.js',
             'RealEstateModule/static/src/snippets/s_website_form/option.js',
         ],
+        'web.assets_backend': [
+            'RealEstateModule/static/src/xml/custom_friend_kanban.xml',
+            'RealEstateModule/static/src/js/custom_friend_kanban.js',
+        ]
     },
     # Import các file cấu hình (chỉ gọi từ folder 'static')
     # Những file liên quan đến
