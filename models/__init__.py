@@ -9,3 +9,6 @@ from . import temporary
 from . import res_cart
 from . import res_partner_details
 from . import res_customer
+from . import res_agency
+from . import add_request
+from . import custom_partner
