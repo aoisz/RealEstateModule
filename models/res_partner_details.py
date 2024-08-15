@@ -133,7 +133,11 @@ class FriendPartnerDetails(models.Model):
 
     @api.model    
     def show_co_partner_list(self):
+<<<<<<< HEAD
         context = {"partner_type": "co_partner"}
+=======
+        context = {}
+>>>>>>> origin/main
         view_kanban_id = self.env.ref('base.res_partner_kanban_view').id
         view_tree_id = self.env.ref('base.view_partner_tree').id
         action = {
@@ -151,7 +155,11 @@ class FriendPartnerDetails(models.Model):
 
     @api.model    
     def show_team_list(self):
+<<<<<<< HEAD
         context = {"partner_type": "team"}
+=======
+        context = {}
+>>>>>>> origin/main
         view_kanban_id = self.env.ref('base.res_partner_kanban_view').id
         view_tree_id = self.env.ref('base.view_partner_tree').id
         action = {
